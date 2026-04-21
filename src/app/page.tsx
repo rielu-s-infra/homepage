@@ -4,13 +4,30 @@ import { getPosts, getAboutContent } from '../lib/posts';
 import type { Post, AboutData } from '../lib/posts'; 
 import { getGitHubRepos } from '../lib/github';
 import type { Repo } from '../lib/github';
+import { getKumaStatus } from '../lib/status';
+import type { ServiceStatus } from '../lib/status';
 
 export default function HomePage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [repos, setRepos] = useState<Repo[]>([]);
   const [about, setAbout] = useState<AboutData | null>(null);
+  const [services, setServices] = useState<ServiceStatus[]>([]);
 
-  const username = import.meta.env.VITE_GITHUB_USERNAME || "namonakiheimin";
+  const kumaSlug = "rielu-service"; 
+
+  useEffect(() => {
+    // 初回読み込み
+    getKumaStatus(kumaSlug).then(setServices);
+    
+    // 1分ごとに更新（ポーリング）
+    const interval = setInterval(() => {
+      getKumaStatus(kumaSlug).then(setServices);
+    }, 60000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  const username = import.meta.env.VITE_GITHUB_USERNAME || "penti-nameko";
 
   useEffect(() => {
     setPosts(getPosts());
@@ -58,14 +75,22 @@ export default function HomePage() {
         {/* Server Status - グリッドを少し強調 */}
         <section className="bg-slate-900/30 border border-slate-800/50 rounded-2xl p-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xl font-bold text-white tracking-tight">Node Status</h2>
-            <span className="text-xs font-mono text-slate-500 uppercase">Uptime: 99.9%</span>
+            <h2 className="text-xl font-bold text-white tracking-tight">System Status</h2>
+            <span className="text-[10px] font-mono text-slate-500 uppercase">Auto-refresh: 60s</span>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatusCard label="K8s Cluster" status="Healthy" color="text-green-400" />
-            <StatusCard label="Nextcloud" status="Online" color="text-green-400" />
-            <StatusCard label="S3 Storage" status="Online" color="text-green-400" />
-            <StatusCard label="IPv6 Stack" status="Active" color="text-sky-400" />
+            {services.length > 0 ? (
+              services.map((svc) => (
+                <StatusCard 
+                  key={svc.name} 
+                  label={svc.name} 
+                  status={svc.status} 
+                  color={svc.color} 
+                />
+              ))
+            ) : (
+              <p className="text-slate-500 text-sm">Fetching status...</p>
+            )}
           </div>
         </section>
 

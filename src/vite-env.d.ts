@@ -6,3 +6,7 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+interface ImportMeta {
+  readonly env: VITE_KUMA_URL: string;
+}
