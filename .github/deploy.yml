@@ -44,7 +44,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           # Organizationの環境変数からユーザー名を取得してイメージ名を構成
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/unipro-site
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/rielu-site2
           tags: |
             type=raw,value=latest
             type=semver,pattern={{version}}
@@ -61,8 +61,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           # Docker Hub上のレジストリキャッシュを利用
-          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/unipro-site:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/unipro-site:buildcache,mode=max
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/rielu-site2:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/rielu-site2:buildcache,mode=max
 
       # Cosignによる署名 (GitHub OIDC Keyless署名)
       - name: Sign Docker images
