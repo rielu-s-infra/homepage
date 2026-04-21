@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rielu-gen
+  namespace: rielu-gen
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # 以下の2行を追加
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: rielugen.uniproject.jp
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rielu-gen
+                port:
+                  number: 3000
+  tls:
+    - hosts:
+        - rielugen.uniproject.jp
+      secretName: rielugen-uniproject-jp-tls
