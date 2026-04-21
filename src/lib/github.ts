@@ -1,4 +1,3 @@
-// src/lib/github.ts
 export interface Repo {
   id: number;
   name: string;
@@ -9,14 +8,29 @@ export interface Repo {
 }
 
 export async function getGitHubRepos(username: string): Promise<Repo[]> {
-  const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`, {
-    next: { revalidate: 3600 }, // ISR: 1時間キャッシュ
-    headers: {
-      // 必要に応じてGitHub Tokenを環境変数から読み込む
-      // Authorization: `token ${process.env.GITHUB_TOKEN}`,
-    },
+  // Viteの環境変数からトークンを取得（もし設定する場合）
+  const token = import.meta.env.VITE_GITHUB_TOKEN;
+
+  const headers: HeadersInit = {
+    'Accept': 'application/vnd.github.v3+json',
+  };
+
+  if (token) {
+    headers['Authorization'] = `token ${token}`;
+  }
+
+  const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`, {
+    // Vite(React)では next: { revalidate } は無視されますが、
+    // ブラウザのキャッシュ機能は働きます。
+    method: 'GET',
+    headers: headers,
   });
 
-  if (!res.ok) throw new Error('Failed to fetch repos');
+  if (!res.ok) {
+    // レートリミット制限などに掛かった場合のハンドリング
+    console.error(`GitHub API error: ${res.status}`);
+    return []; 
+  }
+
   return res.json();
 }

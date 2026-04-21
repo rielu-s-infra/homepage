@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
-import { getPosts, Post } from '../lib/posts';
-import { getGitHubRepos, Repo } from '../lib/github';
+import { getPosts } from '../lib/posts';
+import type { Post } from '../lib/posts'; 
+import { getGitHubRepos } from '../lib/github';
+import type { Repo } from '../lib/github';
+import React, { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const [posts, setPosts] = useState<Post[]>([]);
