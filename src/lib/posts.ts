@@ -59,3 +59,8 @@ export function getAboutContent(): AboutData {
     content: body 
   };
 }
+
+export function getPostBySlug(slug: string): Post | undefined {
+  const allPosts = getPosts(); // 既存の全取得関数
+  return allPosts.find(p => p.slug === slug);
+}
