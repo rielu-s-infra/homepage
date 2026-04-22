@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { getPosts, getAboutContent } from '../lib/posts';
 import type { Post, AboutData } from '../lib/posts'; 

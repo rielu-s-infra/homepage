@@ -8,5 +8,5 @@ interface ImportMeta {
 }
 
 interface ImportMeta {
-  readonly env: VITE_KUMA_URL: string;
+  readonly VITE_KUMA_URL: string;
 }

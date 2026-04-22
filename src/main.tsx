@@ -8,6 +8,12 @@ window.Buffer = Buffer;
 import ReactDOM from 'react-dom/client';
 import './index.css'; // 必ず他のコンポーネントより後にインポート
 
+declare global {
+  interface Window {
+    Buffer: any;
+  }
+}
+
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
