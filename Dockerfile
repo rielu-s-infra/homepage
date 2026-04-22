@@ -59,31 +59,32 @@ RUN bun run build
 
 FROM oven/bun:1 AS runner
 
-# 作業ディレクトリを /app に固定
 WORKDIR /app
 
-# 環境変数の設定
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOST=::
 ENV HOSTNAME="::"
 
-# 1. standalone の「中身」を /app 直下にコピー
-# (これによって /app/server.js が配置されます)
+# 1. standalone の中身をコピー
 COPY --from=builder --chown=bun:bun /app/.next/standalone ./
 
-# 2. public フォルダを /app/public にコピー
-# (server.js と同じ階層にある必要があります)
+# 2. public フォルダをコピー
 COPY --from=builder --chown=bun:bun /app/public ./public
 
-# 3. static フォルダを /app/.next/static にコピー
+# 3. static フォルダをコピー
 COPY --from=builder --chown=bun:bun /app/.next/static ./.next/static
 
-# ユーザー切り替え
+# --- ここが重要！ ---
+# 4. Markdownなどのコンテンツデータもコピーする
+# これがないと、実行時に posts/*.md を読み込めず 404 やエラーになります
+COPY --from=builder --chown=bun:bun /app/posts ./posts
+COPY --from=builder --chown=bun:bun /app/content ./content
+# --------------------
+
 USER bun
 
-# ポート開放
 EXPOSE 3000
 
-# server.js は /app 直下にあるので、そのまま実行
+# server.js を実行
 CMD ["bun", "server.js"]
