@@ -2,7 +2,7 @@ name: Docker Build and Push
 on:
   push:
     branches:
-      - main  # masterブランチへのpushで実行
+      - main  # mainブランチへのpushで実行
 
 concurrency:
   group: docker-build-push
