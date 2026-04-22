@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "tsc -b && next build",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "next preview"
+    "preview": "vite preview"
   },
   "dependencies": {
     "buffer": "^6.0.3",

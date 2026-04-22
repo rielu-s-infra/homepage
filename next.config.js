@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  experimental: {
+    allowedDevOrigins: ['127.0.0.1', 'localhost'],
+  },
 /**   async rewrites() {
     return {
           // 静的ファイルやページルートをチェックする「前」に実行
@@ -14,4 +17,4 @@ const nextConfig = {
   },*/
 }
 
-module.exports = nextConfig
+export default nextConfig;
