@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: docker.io/rieluinfra/rielu-gen:latest
+          image: docker.io/rieluinfra/rielu-site2:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
