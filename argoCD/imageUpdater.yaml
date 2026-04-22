@@ -16,7 +16,7 @@ spec:
     path: 'argoCD' # ←ここを書き換え
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: rielu-gen # ←デプロイ先のNamespace
+    namespace: rielu-site2 # ←デプロイ先のNamespace
   syncPolicy:
     automated:
       prune: true
