@@ -14,6 +14,14 @@ spec:
     - host: rielu.uniproject.jp
       http:
         paths:
+          # Uptime Kuma へのルーティング
+          - path: /api-kuma(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: uptime-kuma-service # 実際の Kuma の Service 名に書き換えてください
+                port:
+                  number: 3001 # Kuma のポート
           - path: /
             pathType: Prefix
             backend:
