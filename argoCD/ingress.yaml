@@ -18,7 +18,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: rielu-gen
+                name: rielu-site2
                 port:
                   number: 3000
   tls:
