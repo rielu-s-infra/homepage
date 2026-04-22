@@ -42,8 +42,8 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/rielu-site2
           tags: |
-            # masterへのpush時はlatestタグを付与
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/master' }}
+            # mainへのpush時はlatestタグを付与
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
             # Gitの短いSHAをタグにする (例: sha-ad123)
             type=sha,prefix=sha-,format=short
             # セマンティックバージョンのタグ（もし付与された場合のみ）
