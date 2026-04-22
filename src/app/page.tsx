@@ -62,7 +62,7 @@ return (
               </div>
             </div>
             
-            <p className="mt-6 text-xl text-slate-400 max-w-2xl leading-relaxed">
+            <p className="mt-6 text-xl text-slate-400 max-w-full leading-relaxed">
               Infrastructure Engineer. focusing on <span className="text-white">Kubernetes</span>, 
               <span className="text-white">IPv6 Networking</span>, and <span className="text-white">Self-hosting</span>.
             </p>
