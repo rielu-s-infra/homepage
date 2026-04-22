@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: rielu-gen-hpa
-  namespace: rielu-gen
+  name: rielu-site2-hpa
+  namespace: rielu-site2
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: rielu-gen
+    name: rielu-site2
   minReplicas: 1
   maxReplicas: 10
   metrics:

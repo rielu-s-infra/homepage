@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rielu-gen
-  namespace: rielu-gen
+  name: rielu-site2
+  namespace: rielu-site2
 spec:
   selector:
     matchLabels:
-      app: rielu-gen
+      app: rielu-site2
   replicas: 1
   template:
     metadata:
       labels:
-        app: rielu-gen
+        app: rielu-site2
     spec:
       containers:
         - name: app
