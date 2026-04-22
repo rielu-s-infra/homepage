@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { getPosts, getAboutContent } from '../lib/posts';
-import type { Post, AboutData } from '../lib/posts'; 
+import type { Post, AboutData } from '../lib/posts';
 import { getGitHubRepos } from '../lib/github';
 import type { Repo } from '../lib/github';
 import { getKumaStatus } from '../lib/status';
