@@ -26,3 +26,5 @@ location: Japan
 
 - [UniProject](https://uniproject.jp)　
 - [Arivell](https://www.arivell.com/)　
+> Digital Creative Club UniProject  
+> 任意団体 Arivell - クリエイター支援団体
