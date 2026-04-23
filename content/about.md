@@ -11,9 +11,9 @@ location: Japan
 
 ### Tech Stack
 
-- **Infrastructure:** Kubernetes (MicroK8s, Kind), Proxmox, Linux
+- **Infrastructure:** Kubernetes (MicroK8s, Kind), Proxmox, Linux , Docker
 - **Network:** IPv6, BGP, WireGuard
-- **Tools:** ArgoCD (GitOps), Helm, Terraform
+- **Tools:** ArgoCD (GitOps), Helm, Terraform 
 - **Development:** TypeScript, Go, React, Next.js, PHP, Python
 
 ### Interests
