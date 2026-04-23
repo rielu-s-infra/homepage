@@ -6,8 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-nginx.ingress.kubernetes.io/server-snippet: |
-      add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://rielu.uniproject.jp;";
+    # ここには rewrite-target を書かない（グローバルに適用されるのを防ぐ）
 spec:
   ingressClassName: nginx
   rules:
