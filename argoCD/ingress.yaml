@@ -1,11 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rielu-site2-frontend-ingress
+  name: rielu-site2-frontend
   namespace: rielu-site2
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # ここには絶対に rewrite-target を入れない
 spec:
   ingressClassName: nginx
   rules:

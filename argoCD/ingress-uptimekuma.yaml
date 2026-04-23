@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rielu-site2-kuma-ingress
+  name: rielu-site2-api
   namespace: rielu-site2
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -18,4 +18,5 @@ spec:
               service:
                 name: uptime-kuma-service
                 port:
-                  number: 80 # KumaのServiceポートに合わせる
+                  number:  80 # Kumaがリッスンしているポート
+                  
