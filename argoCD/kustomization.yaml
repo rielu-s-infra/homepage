@@ -8,6 +8,7 @@ resources:
   - imageUpdater.yaml
   - hpa.yaml
   - service-uptimekuma.yaml
+  - ingress-uptimekuma.yaml
 labels:
   - includeSelectors: true
     pairs:
