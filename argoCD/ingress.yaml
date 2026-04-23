@@ -21,7 +21,7 @@ spec:
               service:
                 name: uptime-kuma-service
                 port:
-                  number: 3001
+                  number: 80
           # フロントエンド（Vite/Bun）へのルーティング
           - path: /
             pathType: Prefix
