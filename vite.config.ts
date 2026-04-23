@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // これを明示的に追加（assets へのパスを /assets/... に固定するため）
   server: {
     proxy: {
       '/api-kuma': {
         target: 'https://rielukuma.uniproject.jp',
         changeOrigin: true,
-        // /api-kuma/api/status-page/... としてリクエストを送る設定
         rewrite: (path) => path.replace(/^\/api-kuma/, ''),
       }
     }
