@@ -6,7 +6,7 @@ metadata:
   annotations:
     # Image Updaterの設定（注釈として記述）
     argocd-image-updater.argoproj.io/image-list: app=docker.io/rieluinfra/rielu-site2
-    argocd-image-updater.argoproj.io/rielu-site2.update-strategy: latest
+    argocd-image-updater.argoproj.io/app.update-strategy: latest
     argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   project: default
