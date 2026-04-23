@@ -1,11 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: rielu-site2-frontend
+  name: rielu-site2-ingress
   namespace: rielu-site2
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    # パス書き換えのための重要設定
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
@@ -21,7 +23,7 @@ spec:
               service:
                 name: uptime-kuma-service
                 port:
-                  number: 80
+                  number: 3001
           # フロントエンド（Vite/Bun）へのルーティング
           - path: /
             pathType: Prefix
