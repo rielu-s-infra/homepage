@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: rielu-site2
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
