@@ -24,7 +24,7 @@ spec:
   tls:
     - hosts:
         - riel.reeldev.jp
-      secretName: rielu-uniproject-jp-tls
+      secretName: riel-reeldev-jp-tls
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
