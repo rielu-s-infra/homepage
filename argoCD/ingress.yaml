@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: riel.reeldev.jp
+    - host: reel.reeldev.jp
       http:
         paths:
           # フロントエンド（rewriteなし：/assets/xxx がそのまま届く）
@@ -23,8 +23,8 @@ spec:
                   number: 3000
   tls:
     - hosts:
-        - riel.reeldev.jp
-      secretName: riel-reeldev-jp-tls
+        - reel.reeldev.jp
+      secretName: reel-reeldev-jp-tls
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -37,7 +37,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: riel.reeldev.jp
+    - host: reel.reeldev.jp
       http:
         paths:
           # API（ここだけ rewrite あり）
