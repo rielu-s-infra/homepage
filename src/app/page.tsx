@@ -13,7 +13,7 @@ export default function HomePage() {
   const [about, setAbout] = useState<AboutData | null>(null);
   const [services, setServices] = useState<ServiceStatus[]>([]);
 
-  const kumaSlug = "rielu-service"; 
+  const kumaSlug = "reel-service"; 
 
   useEffect(() => {
     // 初回読み込み
@@ -47,7 +47,7 @@ return (
                 <div className="absolute -inset-1 bg-gradient-to-r from-sky-500 to-blue-600 rounded-full blur opacity-40 animate-pulse"></div>
                 <img 
                   src="/icon.png" // 公開ディレクトリ(public)に icon.png を配置してください
-                  alt="Rieru"
+                  alt="reel"
                   className="relative w-20 h-20 rounded-full border-2 border-slate-800 object-cover bg-slate-900"
                 />
               </div>
@@ -72,7 +72,7 @@ return (
               <a href="#posts" className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-bold transition-all border border-slate-700">Read Blog</a>
               {/* リンク集へのボタン */}
               <a 
-                href="https://rielulinks.uniproject.jp" // リンク集サイトのパス（または外部URL）
+                href="https://links.reeldev.jp" // リンク集サイトのパス（または外部URL）
                 className="px-6 py-2.5 bg-transparent hover:bg-slate-800 text-slate-300 hover:text-white rounded-lg font-bold transition-all border border-slate-800 flex items-center gap-2"
               >
                 <span>Link Tree</span>
