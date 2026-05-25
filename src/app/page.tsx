@@ -57,7 +57,7 @@ return (
                   <span className="text-xs font-mono text-slate-500 tracking-widest uppercase">System Active</span>
                 </div>
                 <h1 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
-                  Rieru<span className="text-sky-500">.</span>dev
+                  reel<span className="text-sky-500">.</span>dev
                 </h1>
               </div>
             </div>

@@ -10,7 +10,7 @@ const nextConfig = {
       beforeFiles: [
         {
           source: '/api-kuma/:path*',
-          destination: 'https://rielukuma.uniproject.jp/:path*',
+          destination: 'https://reelkuma.uniproject.jp/:path*',
         },
       ],
     }
